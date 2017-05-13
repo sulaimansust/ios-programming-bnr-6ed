@@ -60,3 +60,27 @@ let range = 0..<countingUp.count
 for (space, name) in nameByParkingSpace {
     let permit = "Space \(space): \(name)"
 }
+
+enum PieType: Int {
+    case apple = 0
+    case cherry
+    case pecan
+}
+
+let favoritePie = PieType.apple
+
+let name: String
+switch favoritePie {
+case .apple:
+    name = "Apple"
+case .cherry:
+    name = "Cherry"
+case .pecan:
+    name = "Pecan"
+}
+
+let pieRawValue = PieType.pecan.rawValue
+
+if let pieType = PieType(rawValue: pieRawValue) {
+    print("Got a valid 'pieType! \(pieType)")
+}
