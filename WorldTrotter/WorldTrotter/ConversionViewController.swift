@@ -86,7 +86,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         let hour = Calendar.current.component(Calendar.Component.hour, from: Date())
         if hour <= 6 || hour >= 21 {
-            view.backgroundColor = #colorLiteral(red: 0.3768750435, green: 0.3920434535, blue: 0.5, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.2082005441, green: 0.2135801911, blue: 0.2848022878, alpha: 1)
         }
     }
 

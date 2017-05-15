@@ -90,21 +90,27 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1833" y="845"/>
+            <point key="canvasLocation" x="25" y="947"/>
+        </scene>
+        <!--Web-->
+        <scene sceneID="774-je-M2q">
+            <objects>
+                <viewController id="9kA-gU-KJY" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Web" id="UoB-rj-wLV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Pd-HR-zWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="947"/>
         </scene>
         <!--Map-->
         <scene sceneID="jCC-8G-yYs">
             <objects>
                 <viewController id="syr-qX-1FM" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="vho-tt-TJg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="UsD-Ex-8Dq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJw-Ss-cEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832.8" y="138.98050974512745"/>
+            <point key="canvasLocation" x="894" y="947"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="edn-3B-BhJ">
@@ -112,12 +118,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="yiw-4t-Mvs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="kMa-Wg-IR1">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ezj-uE-rVb"/>
                         <segue destination="syr-qX-1FM" kind="relationship" relationship="viewControllers" id="T1p-f4-Cpe"/>
+                        <segue destination="9kA-gU-KJY" kind="relationship" relationship="viewControllers" id="D50-YE-lBb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKI-vN-8HQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
