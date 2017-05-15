@@ -6,7 +6,6 @@
 //  Copyright © 2017 Big Nerd Ranch. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class ConversionViewController: UIViewController, UITextFieldDelegate {
