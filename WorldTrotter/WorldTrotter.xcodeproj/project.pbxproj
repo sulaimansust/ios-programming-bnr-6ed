@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F8881F71EC94F0B00B7D0C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8881F61EC94F0B00B7D0C6 /* MapKit.framework */; };
+		0F8881F91EC9524C00B7D0C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8881F81EC9524C00B7D0C6 /* MapViewController.swift */; };
 		0FFACC441EC7C5F3008BEA32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFACC431EC7C5F3008BEA32 /* AppDelegate.swift */; };
 		0FFACC491EC7C5F3008BEA32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFACC471EC7C5F3008BEA32 /* Main.storyboard */; };
 		0FFACC4B1EC7C5F3008BEA32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFACC4A1EC7C5F3008BEA32 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F8881F61EC94F0B00B7D0C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0F8881F81EC9524C00B7D0C6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0FFACC401EC7C5F3008BEA32 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFACC431EC7C5F3008BEA32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFACC481EC7C5F3008BEA32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8881F71EC94F0B00B7D0C6 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F8881F51EC94F0B00B7D0C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F8881F61EC94F0B00B7D0C6 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0FFACC371EC7C5F3008BEA32 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +94,7 @@
 				0FFACC571EC7C5F3008BEA32 /* WorldTrotterTests */,
 				0FFACC621EC7C5F3008BEA32 /* WorldTrotterUITests */,
 				0FFACC411EC7C5F3008BEA32 /* Products */,
+				0F8881F51EC94F0B00B7D0C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +114,7 @@
 				0FFACC711EC7DBF7008BEA32 /* ConversionViewController.swift */,
 				0FFACC431EC7C5F3008BEA32 /* AppDelegate.swift */,
 				0FFACC471EC7C5F3008BEA32 /* Main.storyboard */,
+				0F8881F81EC9524C00B7D0C6 /* MapViewController.swift */,
 				0FFACC4A1EC7C5F3008BEA32 /* Assets.xcassets */,
 				0FFACC4C1EC7C5F3008BEA32 /* LaunchScreen.storyboard */,
 				0FFACC4F1EC7C5F3008BEA32 /* Info.plist */,
@@ -261,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FFACC721EC7DBF7008BEA32 /* ConversionViewController.swift in Sources */,
+				0F8881F91EC9524C00B7D0C6 /* MapViewController.swift in Sources */,
 				0FFACC441EC7C5F3008BEA32 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +526,7 @@
 				0FFACC6A1EC7C5F3008BEA32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FFACC6B1EC7C5F3008BEA32 /* Build configuration list for PBXNativeTarget "WorldTrotterTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +535,7 @@
 				0FFACC6D1EC7C5F3008BEA32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FFACC6E1EC7C5F3008BEA32 /* Build configuration list for PBXNativeTarget "WorldTrotterUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +544,7 @@
 				0FFACC701EC7C5F3008BEA32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

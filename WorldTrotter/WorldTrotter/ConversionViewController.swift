@@ -6,6 +6,7 @@
 //  Copyright © 2017 Big Nerd Ranch. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class ConversionViewController: UIViewController, UITextFieldDelegate {
@@ -57,6 +58,9 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print("ConversionViewController loaded its view.")
+
         updateCelciusLabel()
     }
 
@@ -76,6 +80,14 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
             return false
         } else {
             return true
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let hour = Calendar.current.component(Calendar.Component.hour, from: Date())
+        if hour >= 21 {
+            view.backgroundColor = #colorLiteral(red: 0.3768750435, green: 0.3920434535, blue: 0.5, alpha: 1)
         }
     }
 
