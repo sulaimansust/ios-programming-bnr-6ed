@@ -14,6 +14,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
     var pinIndex = 0
+    var lockOnUserPosition = false
 
     let pointsOfInterest = [
         PointOfInterest(latitude: 45.4207054, longitude: -73.6248229, title: "LaSalle, Quebec"),
@@ -32,6 +33,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.delegate = self
         mapView.isRotateEnabled = false
 
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(MapViewController.mapPanInitiated))
+        mapView.addGestureRecognizer(panGestureRecognizer)
+
         // Set it as *the* view of this view controller.
         view = mapView
 
@@ -42,7 +46,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
 
         segmentedControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged(_:)), for: .valueChanged)
 
@@ -50,7 +54,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
         let locationButton = UIButton()
         locationButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        locationButton.translatesAutoresizingMaskIntoConstraints = false
+         locationButton.translatesAutoresizingMaskIntoConstraints = false
         locationButton.setTitle("Show Position", for: .normal)
         locationButton.setTitleColor(#colorLiteral(red: 1.458361749e-05, green: 0.4766390324, blue: 0.9993842244, alpha: 1), for: .normal)
 
@@ -68,6 +72,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
         view.addSubview(pinButton)
 
+
         let scTopConstraint = segmentedControl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8)
         let posTopConstraint = locationButton.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 3)
         let pinTopConstraint = pinButton.topAnchor.constraint(equalTo: locationButton.bottomAnchor, constant: 3)
@@ -79,7 +84,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let posTrailingConstraint = locationButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
         let pinLeadingConstraint = pinButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
         let pinTrailingConstraint = pinButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-
 
         scTopConstraint.isActive = true
         posTopConstraint.isActive = true
@@ -119,6 +123,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             locationManager = CLLocationManager()
             locationManager?.delegate = self
         } else if let location = locationManager?.location {
+            lockOnUserPosition = true
             let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan())
             mapView.setRegion(region, animated: true)
             return
@@ -129,6 +134,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
 
         if CLLocationManager.locationServicesEnabled() {
+            lockOnUserPosition = true
             if !mapView.isUserLocationVisible {
                 mapView.showsUserLocation = true
             }
@@ -136,15 +142,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
 
     func cyclePins() {
+        lockOnUserPosition = false
         pinIndex += 1
         if pinIndex == pointsOfInterest.count {
             pinIndex = 0
         }
-        mapView.showAnnotations([pointsOfInterest[pinIndex]], animated: true)
+        mapView.showAnnotations([pointsOfInterest[pinIndex]], animated: false)
+    }
+
+    func mapPanInitiated() {
+        lockOnUserPosition = false
     }
 
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan())
-        mapView.setRegion(region, animated: true)
+        if lockOnUserPosition {
+            let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan())
+            mapView.setRegion(region, animated: true)
+        }
     }
 }
