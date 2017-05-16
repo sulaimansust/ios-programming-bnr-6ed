@@ -43,7 +43,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             mapView.addAnnotation(poi)
         }
 
-        let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        let standardString = NSLocalizedString("Standard", comment: "Standard map view")
+        let satelliteString = NSLocalizedString("Satellite", comment: "Satellite map view")
+        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
+
+        let segmentedControl = UISegmentedControl(items: [standardString, satelliteString, hybridString])
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
          segmentedControl.translatesAutoresizingMaskIntoConstraints = false
@@ -53,9 +57,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         view.addSubview(segmentedControl)
 
         let locationButton = UIButton()
+        let locationButtonString = NSLocalizedString("Show Position", comment: "Show position on map button title")
         locationButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-         locationButton.translatesAutoresizingMaskIntoConstraints = false
-        locationButton.setTitle("Show Position", for: .normal)
+        locationButton.translatesAutoresizingMaskIntoConstraints = false
+        locationButton.setTitle(locationButtonString, for: .normal)
         locationButton.setTitleColor(#colorLiteral(red: 1.458361749e-05, green: 0.4766390324, blue: 0.9993842244, alpha: 1), for: .normal)
 
         locationButton.addTarget(self, action: #selector(MapViewController.showPosition), for: .touchUpInside)
@@ -63,15 +68,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         view.addSubview(locationButton)
 
         let pinButton = UIButton()
+        let pinButtonString = NSLocalizedString("Cycle Pins", comment: "Cycle through map pins")
         pinButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         pinButton.translatesAutoresizingMaskIntoConstraints = false
-        pinButton.setTitle("Cycle Pins", for: .normal)
+        pinButton.setTitle(pinButtonString, for: .normal)
         pinButton.setTitleColor(#colorLiteral(red: 1.458361749e-05, green: 0.4766390324, blue: 0.9993842244, alpha: 1), for: .normal)
 
         pinButton.addTarget(self, action: #selector(MapViewController.cyclePins), for: .touchUpInside)
 
         view.addSubview(pinButton)
-
 
         let scTopConstraint = segmentedControl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8)
         let posTopConstraint = locationButton.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 3)
@@ -102,9 +107,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         case 0:
             mapView.mapType = .standard
         case 1:
-            mapView.mapType = .hybrid
-        case 2:
             mapView.mapType = .satellite
+        case 2:
+            mapView.mapType = .hybrid
         default:
             break;
         }

@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  WorldTrotter
+
+  Created by Laurent Boileau on 2017-05-16.
+  Copyright © 2017 Big Nerd Ranch. All rights reserved.
+*/
+
+"NSLocationWhenInUseUsageDescription" = "Les données de localisation sont utilisées pour afficher l'emplacement actuel de l'appareil sur la carte.";
