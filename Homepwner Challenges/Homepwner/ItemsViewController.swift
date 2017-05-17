@@ -30,6 +30,8 @@ class ItemsViewController: UITableViewController {
             return under50.count
         case 1: // over 50
             return itemStore.allItems.count - under50.count
+        case 2: // No more items!
+            return 1
         default:
             return 0
         }
@@ -63,13 +65,16 @@ class ItemsViewController: UITableViewController {
         if let item = item {
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = item.price
+        } else {
+            cell.textLabel?.text = "No more items!"
+            cell.detailTextLabel?.text = ""
         }
 
         return cell
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection: Int) -> String? {

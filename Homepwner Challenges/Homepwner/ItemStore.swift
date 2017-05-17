@@ -29,7 +29,7 @@ class ItemStore {
     }
 
     func items(over: Int) -> [Item] {
-        return allItems.filter({ $0.valueInDollars > over })
+        return allItems.filter({ $0.valueInDollars >= over })
     }
 
 
