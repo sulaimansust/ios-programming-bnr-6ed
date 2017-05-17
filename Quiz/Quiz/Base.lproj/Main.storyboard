@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,7 +27,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8O-GF-CxQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8O-GF-CxQ">
                                 <rect key="frame" x="175" y="271" width="25" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -47,22 +47,33 @@
                                     <action selector="showAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yd0-jO-6aD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xiy-NB-vVT">
+                                <rect key="frame" x="166.5" y="79" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CYl-bR-2h7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8bs-Ah-vNg"/>
                             <constraint firstItem="A8O-GF-CxQ" firstAttribute="top" secondItem="UbE-UM-zBo" secondAttribute="bottom" constant="133" id="DWw-jo-Dm4"/>
-                            <constraint firstItem="CYl-bR-2h7" firstAttribute="centerX" secondItem="UbE-UM-zBo" secondAttribute="centerX" id="IGM-5W-97p"/>
+                            <constraint firstItem="Xiy-NB-vVT" firstAttribute="top" secondItem="CYl-bR-2h7" secondAttribute="top" id="E2Q-eh-YWM"/>
+                            <constraint firstItem="A8O-GF-CxQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ehh-ga-bZX"/>
                             <constraint firstItem="kfr-1w-EUd" firstAttribute="top" secondItem="A8O-GF-CxQ" secondAttribute="bottom" constant="8" id="Jlw-AG-ZbS"/>
-                            <constraint firstItem="A8O-GF-CxQ" firstAttribute="centerX" secondItem="UbE-UM-zBo" secondAttribute="centerX" id="aYq-1G-spi"/>
+                            <constraint firstItem="Xiy-NB-vVT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jyk-6M-Nge"/>
                             <constraint firstItem="CYl-bR-2h7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="59" id="adA-F7-BsK"/>
+                            <constraint firstItem="UbE-UM-zBo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cfx-0a-eCN"/>
                             <constraint firstItem="UbE-UM-zBo" firstAttribute="top" secondItem="CYl-bR-2h7" secondAttribute="bottom" constant="8" id="n9M-Yv-82r"/>
                             <constraint firstItem="kfr-1w-EUd" firstAttribute="centerX" secondItem="UbE-UM-zBo" secondAttribute="centerX" id="zEd-Uh-Wl8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="A8O-GF-CxQ" id="pYi-Qf-pda"/>
-                        <outlet property="questionLabel" destination="CYl-bR-2h7" id="nrm-9j-bUn"/>
+                        <outlet property="currentQuestionLabel" destination="CYl-bR-2h7" id="xus-rF-R5m"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="8bs-Ah-vNg" id="v0V-aI-Bx3"/>
+                        <outlet property="nextQuestionLabel" destination="Xiy-NB-vVT" id="By5-KR-5ay"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="Jyk-6M-Nge" id="xcF-E7-6Gt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
