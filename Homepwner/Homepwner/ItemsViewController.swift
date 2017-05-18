@@ -84,26 +84,45 @@ class ItemsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        switch section {
+        case 0:
+            return itemStore.allItems.count
+        default:
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = indexPath.section == 0 ? "UITableViewCell" : "NoMoreItems"
+
         // Get a new or recycled cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
-        // Set the text on the cell with the description of the utem
-        // that is at the nth index of items, where n = row this cell
-        // will appear in on the tableview
-        let item = itemStore.allItems[indexPath.row]
+        if indexPath.section == 0 {
+            // Set the text on the cell with the description of the utem
+            // that is at the nth index of items, where n = row this cell
+            // will appear in on the tableview
+            let item = itemStore.allItems[indexPath.row]
 
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = item.price
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = item.price
+        } else {
+            cell.textLabel?.text = "No more items!"
+        }
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Remove"
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 0
     }
 
 }
