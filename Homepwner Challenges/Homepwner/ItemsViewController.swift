@@ -20,6 +20,10 @@ class ItemsViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+
+        // Table view background image
+        let backgroundImage = UIImageView(image: #imageLiteral(resourceName: "TableBackground"))
+        tableView.backgroundView = backgroundImage
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,8 +42,6 @@ class ItemsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Get a new or recycled cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
 
         // Set the text on the cell with the description of the utem
         // that is at the nth index of items, where n = row this cell
@@ -53,14 +55,20 @@ class ItemsViewController: UITableViewController {
         let under50 = itemStore.items(under: 50).sorted(by: priceAsc)
         let over50 = itemStore.items(over: 50).sorted(by: priceAsc)
 
+        var cellIdentifier = "UITableViewCell"
+
         switch indexPath.section {
         case 0:
             item = under50[indexPath.row]
         case 1:
             item = over50[indexPath.row]
         default:
+            cellIdentifier = "NoMoreCell"
             break;
         }
+
+        // Get a new or recycled cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
         if let item = item {
             cell.textLabel?.text = item.name
