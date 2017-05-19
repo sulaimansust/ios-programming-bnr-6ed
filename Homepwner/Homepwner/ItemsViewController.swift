@@ -20,6 +20,9 @@ class ItemsViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
     }
 
     @IBAction func addNewItem(_ sender: UIButton) {
@@ -93,7 +96,7 @@ class ItemsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = indexPath.section == 0 ? "UITableViewCell" : "NoMoreItems"
+        let cellIdentifier = indexPath.section == 0 ? "ItemCell" : "NoMoreItems"
 
         // Get a new or recycled cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
@@ -104,8 +107,15 @@ class ItemsViewController: UITableViewController {
             // will appear in on the tableview
             let item = itemStore.allItems[indexPath.row]
 
-            cell.textLabel?.text = item.name
-            cell.detailTextLabel?.text = item.price
+            let itemCell = cell as! ItemCell
+
+            itemCell.nameLabel.text = item.name
+            itemCell.serialNumberLabel.text = item.serialNumber
+            itemCell.valueLabel.text = item.price
+
+            itemCell.valueLabel.textColor = item.valueInDollars < 50 ? #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1) : #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+
+            return itemCell
         } else {
             cell.textLabel?.text = "No more items!"
         }

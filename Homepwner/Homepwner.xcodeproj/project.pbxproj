@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F3FB31F1ECE813200430A84 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3FB31E1ECE813200430A84 /* ItemCell.swift */; };
 		0F44B8031ECCCF14006BBCC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44B8021ECCCF14006BBCC1 /* AppDelegate.swift */; };
 		0F44B8081ECCCF14006BBCC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F44B8061ECCCF14006BBCC1 /* Main.storyboard */; };
 		0F44B80A1ECCCF14006BBCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F44B8091ECCCF14006BBCC1 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F3FB31E1ECE813200430A84 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		0F44B7FF1ECCCF14006BBCC1 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F44B8021ECCCF14006BBCC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F44B8071ECCCF14006BBCC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,9 +50,9 @@
 		0F44B81E1ECCCF14006BBCC1 /* HomepwnerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomepwnerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F44B8221ECCCF14006BBCC1 /* HomepwnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepwnerUITests.swift; sourceTree = "<group>"; };
 		0F44B8241ECCCF14006BBCC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F87C66E1ECCEF92009D78CC /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemsViewController.swift; path = Homepwner/ItemsViewController.swift; sourceTree = "<group>"; };
-		0F87C6701ECCF05E009D78CC /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Homepwner/Item.swift; sourceTree = "<group>"; };
-		0F87C6721ECCF373009D78CC /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemStore.swift; path = Homepwner/ItemStore.swift; sourceTree = "<group>"; };
+		0F87C66E1ECCEF92009D78CC /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		0F87C6701ECCF05E009D78CC /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		0F87C6721ECCF373009D78CC /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +83,6 @@
 		0F44B7F61ECCCF13006BBCC1 = {
 			isa = PBXGroup;
 			children = (
-				0F87C6701ECCF05E009D78CC /* Item.swift */,
-				0F87C6721ECCF373009D78CC /* ItemStore.swift */,
-				0F87C66E1ECCEF92009D78CC /* ItemsViewController.swift */,
 				0F44B8011ECCCF14006BBCC1 /* Homepwner */,
 				0F44B8161ECCCF14006BBCC1 /* HomepwnerTests */,
 				0F44B8211ECCCF14006BBCC1 /* HomepwnerUITests */,
@@ -104,6 +103,10 @@
 		0F44B8011ECCCF14006BBCC1 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				0F87C6701ECCF05E009D78CC /* Item.swift */,
+				0F87C6721ECCF373009D78CC /* ItemStore.swift */,
+				0F87C66E1ECCEF92009D78CC /* ItemsViewController.swift */,
+				0F3FB31E1ECE813200430A84 /* ItemCell.swift */,
 				0F44B8021ECCCF14006BBCC1 /* AppDelegate.swift */,
 				0F44B8061ECCCF14006BBCC1 /* Main.storyboard */,
 				0F44B8091ECCCF14006BBCC1 /* Assets.xcassets */,
@@ -199,6 +202,7 @@
 				TargetAttributes = {
 					0F44B7FE1ECCCF14006BBCC1 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 36WANW846Q;
 						ProvisioningStyle = Automatic;
 					};
 					0F44B8121ECCCF14006BBCC1 = {
@@ -269,6 +273,7 @@
 				0F87C6711ECCF05E009D78CC /* Item.swift in Sources */,
 				0F87C6731ECCF373009D78CC /* ItemStore.swift in Sources */,
 				0F44B8031ECCCF14006BBCC1 /* AppDelegate.swift in Sources */,
+				0F3FB31F1ECE813200430A84 /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 36WANW846Q;
 				INFOPLIST_FILE = Homepwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.Homepwner;
@@ -434,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 36WANW846Q;
 				INFOPLIST_FILE = Homepwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.Homepwner;
