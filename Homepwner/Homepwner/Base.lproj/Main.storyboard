@@ -88,6 +88,7 @@
                                     <outlet property="nameLabel" destination="OrQ-TB-oVm" id="3Vl-Jz-44a"/>
                                     <outlet property="serialNumberLabel" destination="p06-wB-SAR" id="qq5-Ri-IEg"/>
                                     <outlet property="valueLabel" destination="6Ug-ho-o9F" id="JvJ-O4-RKx"/>
+                                    <segue destination="3Qa-c3-5LA" kind="show" identifier="showItem" id="bw8-0P-zBS"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoMoreItems" textLabel="2gm-wB-If4" style="IBUITableViewCellStyleDefault" id="f3Z-ux-ivN">
@@ -118,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="97" y="146"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="KPm-da-X1k">
             <objects>
-                <viewController id="3Qa-c3-5LA" sceneMemberID="viewController">
+                <viewController id="3Qa-c3-5LA" customClass="DetailViewController" customModule="Homepwner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v2n-vS-nL9"/>
                         <viewControllerLayoutGuide type="bottom" id="D1N-07-6eV"/>
@@ -205,10 +206,16 @@
                             <constraint firstItem="wMh-be-hUQ" firstAttribute="top" secondItem="v2n-vS-nL9" secondAttribute="bottom" constant="8" id="SWc-sP-WF7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="Iuv-gx-A19" id="tgC-pT-URa"/>
+                        <outlet property="nameField" destination="WZD-YZ-1oc" id="7dB-S8-23B"/>
+                        <outlet property="serialNumberField" destination="7Tl-49-7Eq" id="QC3-kE-itJ"/>
+                        <outlet property="valueField" destination="tin-US-H3I" id="nmd-yt-wQ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NQ-R6-0tB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="745" y="145"/>
+            <point key="canvasLocation" x="879" y="145"/>
         </scene>
     </scenes>
 </document>
