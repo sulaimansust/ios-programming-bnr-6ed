@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 
     let questions: [String] = [
         "What is 7+7?",
-        "What is the capital of Vermont",
+        "What is the capital of Vermont?",
         "What is cognac made from?"
     ]
 
