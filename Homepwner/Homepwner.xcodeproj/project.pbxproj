@@ -18,6 +18,7 @@
 		0F87C6711ECCF05E009D78CC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C6701ECCF05E009D78CC /* Item.swift */; };
 		0F87C6731ECCF373009D78CC /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C6721ECCF373009D78CC /* ItemStore.swift */; };
 		0FB2A4011EDF235D00D02AB7 /* MyUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB2A4001EDF235D00D02AB7 /* MyUITextField.swift */; };
+		0FB2A4061EDF26EF00D02AB7 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB2A4051EDF26EF00D02AB7 /* DateViewController.swift */; };
 		0FE658211ECFC1DA00B10D8C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE658201ECFC1DA00B10D8C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		0F87C6701ECCF05E009D78CC /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0F87C6721ECCF373009D78CC /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		0FB2A4001EDF235D00D02AB7 /* MyUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITextField.swift; sourceTree = "<group>"; };
+		0FB2A4051EDF26EF00D02AB7 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		0FE658201ECFC1DA00B10D8C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 			children = (
 				0FE658201ECFC1DA00B10D8C /* DetailViewController.swift */,
 				0F87C66E1ECCEF92009D78CC /* ItemsViewController.swift */,
+				0FB2A4051EDF26EF00D02AB7 /* DateViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FB2A4061EDF26EF00D02AB7 /* DateViewController.swift in Sources */,
 				0FB2A4011EDF235D00D02AB7 /* MyUITextField.swift in Sources */,
 				0F87C66F1ECCEF92009D78CC /* ItemsViewController.swift in Sources */,
 				0F87C6711ECCF05E009D78CC /* Item.swift in Sources */,

@@ -12,7 +12,7 @@ class Item: NSObject {
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
-    let dateCreated: Date
+    var dateCreated: Date
 
     var price: String {
         let nf = NumberFormatter()
@@ -22,13 +22,17 @@ class Item: NSObject {
         return nf.string(from: NSNumber(value: valueInDollars)) ?? "N/A"
     }
 
-    init(name: String, serialNumber: String?, valueInDollars: Int) {
+    init(name: String, serialNumber: String?, valueInDollars: Int, dateCreated: Date) {
         self.name = name
         self.serialNumber = serialNumber
         self.valueInDollars = valueInDollars
-        self.dateCreated = Date()
+        self.dateCreated = dateCreated
 
         super.init()
+    }
+
+    convenience init(name: String, serialNumber: String?, valueInDollars: Int) {
+        self.init(name: name, serialNumber: serialNumber, valueInDollars: valueInDollars, dateCreated: Date())
     }
 
     convenience init(random: Bool = false) {
