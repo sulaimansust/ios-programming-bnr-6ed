@@ -100,6 +100,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
 
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
+            imagePicker.cameraOverlayView = cameraOverlayView()
         } else {
             imagePicker.sourceType = .photoLibrary
         }
@@ -130,5 +131,38 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBAction func removePicture(_ sender: UIBarButtonItem) {
         imageView.image = nil
         imageStore.deleteImage(forKey: item.itemKey)
+    }
+
+    func cameraOverlayView() -> UIView {
+        let crossHairSize: CGFloat = 64.0
+        let crossHairWidth: CGFloat = 1.0
+        let center = CGPoint(x: super.view.frame.midX, y: super.view.frame.midY)
+
+        let crossHairs = UIView(frame: CGRect(x: center.x - (crossHairSize / 2),
+                                              y: center.y - (crossHairSize / 2),
+                                              width: crossHairSize,
+                                              height: crossHairSize))
+        crossHairs.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3)
+        crossHairs.translatesAutoresizingMaskIntoConstraints = false
+        crossHairs.layer.cornerRadius = crossHairSize / 2.0
+
+        let horizontalLine = UIView(frame: CGRect(x: 0,
+                                                  y: (crossHairSize / 2) - (crossHairWidth / 2),
+                                                  width: crossHairSize,
+                                                  height: crossHairWidth))
+        horizontalLine.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        horizontalLine.translatesAutoresizingMaskIntoConstraints = false
+
+        let verticalLine = UIView(frame: CGRect(x: (crossHairSize / 2) - (crossHairWidth / 2),
+                                                y: 0,
+                                                width: crossHairWidth,
+                                                height: crossHairSize))
+        verticalLine.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        verticalLine.translatesAutoresizingMaskIntoConstraints = false
+
+        crossHairs.addSubview(horizontalLine)
+        crossHairs.addSubview(verticalLine)
+
+        return crossHairs
     }
 }
