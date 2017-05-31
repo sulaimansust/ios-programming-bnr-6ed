@@ -13,6 +13,7 @@ class Item: NSObject {
     var valueInDollars: Int
     var serialNumber: String?
     var dateCreated: Date
+    let itemKey: String
 
     var price: String {
         let nf = NumberFormatter()
@@ -27,6 +28,7 @@ class Item: NSObject {
         self.serialNumber = serialNumber
         self.valueInDollars = valueInDollars
         self.dateCreated = dateCreated
+        self.itemKey = UUID().uuidString
 
         super.init()
     }

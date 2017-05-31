@@ -19,6 +19,7 @@
 		0F87C6731ECCF373009D78CC /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C6721ECCF373009D78CC /* ItemStore.swift */; };
 		0FB2A4011EDF235D00D02AB7 /* MyUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB2A4001EDF235D00D02AB7 /* MyUITextField.swift */; };
 		0FB2A4061EDF26EF00D02AB7 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB2A4051EDF26EF00D02AB7 /* DateViewController.swift */; };
+		0FB2A4081EDF4FBD00D02AB7 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB2A4071EDF4FBD00D02AB7 /* ImageStore.swift */; };
 		0FE658211ECFC1DA00B10D8C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE658201ECFC1DA00B10D8C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		0F87C6721ECCF373009D78CC /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		0FB2A4001EDF235D00D02AB7 /* MyUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITextField.swift; sourceTree = "<group>"; };
 		0FB2A4051EDF26EF00D02AB7 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		0FB2A4071EDF4FBD00D02AB7 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		0FE658201ECFC1DA00B10D8C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 			children = (
 				0F87C6701ECCF05E009D78CC /* Item.swift */,
 				0F87C6721ECCF373009D78CC /* ItemStore.swift */,
+				0FB2A4071EDF4FBD00D02AB7 /* ImageStore.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				0F87C66F1ECCEF92009D78CC /* ItemsViewController.swift in Sources */,
 				0F87C6711ECCF05E009D78CC /* Item.swift in Sources */,
 				0F87C6731ECCF373009D78CC /* ItemStore.swift in Sources */,
+				0FB2A4081EDF4FBD00D02AB7 /* ImageStore.swift in Sources */,
 				0FE658211ECFC1DA00B10D8C /* DetailViewController.swift in Sources */,
 				0F44B8031ECCCF14006BBCC1 /* AppDelegate.swift in Sources */,
 				0F3FB31F1ECE813200430A84 /* ItemCell.swift in Sources */,
