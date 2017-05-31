@@ -12,20 +12,26 @@ class ItemsViewController: UITableViewController {
 
     var itemStore: ItemStore!
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Get tht height of the status bar
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
 
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
     }
 
-    @IBAction func addNewItem(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        tableView.reloadData()
+    }
+
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         // Create a new item and add it to the store
         let newItem = itemStore.createItem()
 
@@ -35,22 +41,6 @@ class ItemsViewController: UITableViewController {
 
             // Insert this new row into the table
             tableView.insertRows(at: [indexPath], with: .automatic)
-        }
-    }
-
-    @IBAction func toggleEditingMode(_ sender: UIButton) {
-        if isEditing {
-            // Change text of button to inform user of state
-            sender.setTitle("Edit", for: .normal)
-
-            // Turn off editing mode
-            setEditing(false, animated: true)
-        } else  {
-            // Change text of button to inform user of state
-            sender.setTitle("Done", for: .normal)
-
-            // Enter editing mode
-            setEditing(true, animated: true)
         }
     }
 
@@ -67,7 +57,7 @@ class ItemsViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             ac.addAction(cancelAction)
 
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
                 // Remove the item from the store
                 self.itemStore.removeItem(item)
 
@@ -101,7 +91,7 @@ class ItemsViewController: UITableViewController {
         // Get a new or recycled cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
-        if indexPath.section == 0 {
+        if cellIdentifier == "ItemCell" {
             // Set the text on the cell with the description of the utem
             // that is at the nth index of items, where n = row this cell
             // will appear in on the tableview
