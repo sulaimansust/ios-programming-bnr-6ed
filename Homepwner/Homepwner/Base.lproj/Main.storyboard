@@ -205,6 +205,11 @@
                                             <action selector="takePicture:" destination="3Qa-c3-5LA" id="7eg-Wv-29t"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Remove Image" id="0DW-A2-Djt">
+                                        <connections>
+                                            <action selector="removePicture:" destination="3Qa-c3-5LA" id="21Z-OF-eRq"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
