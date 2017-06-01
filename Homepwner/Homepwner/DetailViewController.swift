@@ -15,6 +15,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var removeImageButton: UIBarButtonItem!
 
     var item: Item! {
         didSet {
@@ -52,8 +53,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
 
         // If there's an associated image with the item
         // display it on the image view
-        let imageToDisplay = imageStore.image(forKey: key)
-        imageView.image = imageToDisplay
+        if let imageToDisplay = imageStore.image(forKey: key) {
+            imageView.image = imageToDisplay
+            removeImageButton.isEnabled = true
+        } else {
+            imageView.image = nil
+            removeImageButton.isEnabled = false
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {

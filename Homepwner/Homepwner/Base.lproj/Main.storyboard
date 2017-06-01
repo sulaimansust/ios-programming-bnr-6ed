@@ -205,7 +205,7 @@
                                             <action selector="takePicture:" destination="3Qa-c3-5LA" id="7eg-Wv-29t"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Remove Image" id="0DW-A2-Djt">
+                                    <barButtonItem systemItem="trash" id="0DW-A2-Djt">
                                         <connections>
                                             <action selector="removePicture:" destination="3Qa-c3-5LA" id="21Z-OF-eRq"/>
                                         </connections>
@@ -232,6 +232,7 @@
                         <outlet property="dateLabel" destination="Iuv-gx-A19" id="tgC-pT-URa"/>
                         <outlet property="imageView" destination="URX-EC-GBr" id="OD9-6O-tuM"/>
                         <outlet property="nameField" destination="WZD-YZ-1oc" id="7dB-S8-23B"/>
+                        <outlet property="removeImageButton" destination="0DW-A2-Djt" id="GD4-mp-Sab"/>
                         <outlet property="serialNumberField" destination="7Tl-49-7Eq" id="QC3-kE-itJ"/>
                         <outlet property="valueField" destination="tin-US-H3I" id="nmd-yt-wQ8"/>
                     </connections>
