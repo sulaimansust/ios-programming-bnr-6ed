@@ -13,11 +13,15 @@ class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
     var imageStore: ImageStore!
 
+    // MARK: - Initializers
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         navigationItem.leftBarButtonItem = editButtonItem
     }
+
+    // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,8 @@ class ItemsViewController: UITableViewController {
         tableView.reloadData()
     }
 
+    // MARK: - Actions
+
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         // Create a new item and add it to the store
         let newItem = itemStore.createItem()
@@ -44,6 +50,25 @@ class ItemsViewController: UITableViewController {
             tableView.insertRows(at: [indexPath], with: .automatic)
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // If the triggered segue is the "showItem" segue
+        switch segue.identifier {
+        case "showItem"?:
+            // Figure out which row was just tapped
+            if let row = tableView.indexPathForSelectedRow?.row {
+                // Get the item associated with this row and pass it along
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item
+                detailViewController.imageStore = imageStore
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
+
+    // MARK: - UITableViewDataSource methods
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // If the table view is asking to commit a delete command...
@@ -117,10 +142,6 @@ class ItemsViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "Remove"
-    }
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -133,28 +154,17 @@ class ItemsViewController: UITableViewController {
         return indexPath.section == 0
     }
 
+    // MARK: - UITableViewDelegate Methods
+
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove"
+    }
+
     override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         if sourceIndexPath.section != proposedDestinationIndexPath.section {
             return sourceIndexPath
         }
         return proposedDestinationIndexPath
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // If the triggered segue is the "showItem" segue
-        switch segue.identifier {
-        case "showItem"?:
-            // Figure out which row was just tapped
-            if let row = tableView.indexPathForSelectedRow?.row {
-                // Get the item associated with this row and pass it along
-                let item = itemStore.allItems[row]
-                let detailViewController = segue.destination as! DetailViewController
-                detailViewController.item = item
-                detailViewController.imageStore = imageStore
-            }
-        default:
-            preconditionFailure("Unexpected segue identifier.")
-        }
     }
 
 }

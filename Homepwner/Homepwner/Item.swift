@@ -23,6 +23,8 @@ class Item: NSObject {
         return nf.string(from: NSNumber(value: valueInDollars)) ?? "N/A"
     }
 
+    // MARK: - Initializers
+
     init(name: String, serialNumber: String?, valueInDollars: Int, dateCreated: Date) {
         self.name = name
         self.serialNumber = serialNumber

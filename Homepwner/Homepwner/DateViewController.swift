@@ -14,6 +14,8 @@ class DateViewController: UIViewController {
 
     var item: Item!
 
+    // MARK: - View life cycle
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 

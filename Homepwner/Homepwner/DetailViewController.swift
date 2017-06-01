@@ -37,6 +37,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         return formatter
     }()
 
+    // MARK: - View life cycle
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -72,9 +74,18 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         }
     }
 
+    // MARK: - UITextFieldDelegate methods
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+
+    // MARK: - Actions
+
+    @IBAction func removePicture(_ sender: UIBarButtonItem) {
+        imageView.image = nil
+        imageStore.deleteImage(forKey: item.itemKey)
     }
 
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
@@ -100,7 +111,38 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
 
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
-            imagePicker.cameraOverlayView = cameraOverlayView()
+            imagePicker.cameraOverlayView = { () -> UIView in
+                let crossHairSize: CGFloat = 64.0
+                let crossHairWidth: CGFloat = 1.0
+                let center = CGPoint(x: super.view.frame.midX, y: super.view.frame.midY)
+
+                let crossHairs = UIView(frame: CGRect(x: center.x - (crossHairSize / 2),
+                                                      y: center.y - (crossHairSize / 2),
+                                                      width: crossHairSize,
+                                                      height: crossHairSize))
+                crossHairs.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3)
+                crossHairs.translatesAutoresizingMaskIntoConstraints = false
+                crossHairs.layer.cornerRadius = crossHairSize / 2.0
+
+                let horizontalLine = UIView(frame: CGRect(x: 0,
+                                                          y: (crossHairSize / 2) - (crossHairWidth / 2),
+                                                          width: crossHairSize,
+                                                          height: crossHairWidth))
+                horizontalLine.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                horizontalLine.translatesAutoresizingMaskIntoConstraints = false
+
+                let verticalLine = UIView(frame: CGRect(x: (crossHairSize / 2) - (crossHairWidth / 2),
+                                                        y: 0,
+                                                        width: crossHairWidth,
+                                                        height: crossHairSize))
+                verticalLine.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                verticalLine.translatesAutoresizingMaskIntoConstraints = false
+                
+                crossHairs.addSubview(horizontalLine)
+                crossHairs.addSubview(verticalLine)
+                
+                return crossHairs
+            }()
         } else {
             imagePicker.sourceType = .photoLibrary
         }
@@ -114,6 +156,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         present(imagePicker, animated: true, completion: nil)
     }
 
+    // MARK: - UIImagePickerControllerDelegate methods
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get picked image from info dictionary
         let image = info[UIImagePickerControllerEditedImage] as! UIImage
@@ -126,43 +170,5 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
 
         // Take image picker off screen - you must call this dismiss method 
         dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func removePicture(_ sender: UIBarButtonItem) {
-        imageView.image = nil
-        imageStore.deleteImage(forKey: item.itemKey)
-    }
-
-    func cameraOverlayView() -> UIView {
-        let crossHairSize: CGFloat = 64.0
-        let crossHairWidth: CGFloat = 1.0
-        let center = CGPoint(x: super.view.frame.midX, y: super.view.frame.midY)
-
-        let crossHairs = UIView(frame: CGRect(x: center.x - (crossHairSize / 2),
-                                              y: center.y - (crossHairSize / 2),
-                                              width: crossHairSize,
-                                              height: crossHairSize))
-        crossHairs.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3)
-        crossHairs.translatesAutoresizingMaskIntoConstraints = false
-        crossHairs.layer.cornerRadius = crossHairSize / 2.0
-
-        let horizontalLine = UIView(frame: CGRect(x: 0,
-                                                  y: (crossHairSize / 2) - (crossHairWidth / 2),
-                                                  width: crossHairSize,
-                                                  height: crossHairWidth))
-        horizontalLine.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        horizontalLine.translatesAutoresizingMaskIntoConstraints = false
-
-        let verticalLine = UIView(frame: CGRect(x: (crossHairSize / 2) - (crossHairWidth / 2),
-                                                y: 0,
-                                                width: crossHairWidth,
-                                                height: crossHairSize))
-        verticalLine.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        verticalLine.translatesAutoresizingMaskIntoConstraints = false
-
-        crossHairs.addSubview(horizontalLine)
-        crossHairs.addSubview(verticalLine)
-
-        return crossHairs
     }
 }

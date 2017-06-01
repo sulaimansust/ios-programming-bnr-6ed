@@ -14,6 +14,8 @@ class ItemCell: UITableViewCell {
     @IBOutlet var serialNumberLabel: UILabel!
     @IBOutlet var valueLabel: UILabel!
 
+    // MARK: - NSObject methods
+
     override func awakeFromNib() {
         super.awakeFromNib()
 

@@ -10,6 +10,8 @@ import UIKit
 
 class MyUITextField: UITextField {
 
+    // MARK: - UIResponder methods
+
     override func becomeFirstResponder() -> Bool {
         self.borderStyle = .line
         return super.becomeFirstResponder()
