@@ -40,6 +40,12 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         }
     }
 
+    @IBInspectable var currentLineThickness: CGFloat = 10 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     override var canBecomeFirstResponder: Bool {
         return true
     }
@@ -162,6 +168,21 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     func moveLine(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("Recognized a pan")
 
+        let velocity = gestureRecognizer.velocity(in: self)
+
+        switch abs(velocity.x) + abs(velocity.y) {
+        case 0..<50:
+            currentLineThickness = 5
+        case 50..<150:
+            currentLineThickness = 7
+        case 150..<500:
+            currentLineThickness = 12
+        case 500..<1000:
+            currentLineThickness = 19
+        default:
+            currentLineThickness = 31
+        }
+
         // If a line is selected...
         if let index = selectedLineIndex {
             // When the pan recognizer changes its position...
@@ -248,9 +269,9 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
 
     // MARK: - Drawing
 
-    func stroke(_ line: Line) {
+    func stroke(_ line: Line, isCurrent current: Bool = false) {
         let path = UIBezierPath()
-        path.lineWidth = lineThickness
+        path.lineWidth = (current) ? currentLineThickness : lineThickness
         path.lineCapStyle = .round
 
         path.move(to: line.begin)
@@ -264,17 +285,17 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         for line in finishedLines {
             stroke(line)
         }
-
+        
         currentLineColor.setStroke()
         for (_, line) in currentLines {
-            stroke(line)
+            stroke(line, isCurrent: true)
         }
-
+        
         if let index = selectedLineIndex {
             UIColor.green.setStroke()
             let selectedLine = finishedLines[index]
             stroke(selectedLine)
         }
     }
-
+    
 }
