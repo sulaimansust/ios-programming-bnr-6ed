@@ -106,9 +106,23 @@ class DrawView: UIView {
             stroke(line)
         }
 
-        currentLineColor.setStroke()
         for (_, line) in currentLines {
+            color(forLine: line).setStroke()
             stroke(line)
+        }
+    }
+
+    func color(forLine line: Line) -> UIColor {
+        let angleClassification = line.classification
+        switch angleClassification {
+        case .q1:
+            return UIColor.green
+        case .q2:
+            return UIColor.blue
+        case .q3:
+            return UIColor.purple
+        case .q4:
+            return UIColor.orange
         }
     }
 
