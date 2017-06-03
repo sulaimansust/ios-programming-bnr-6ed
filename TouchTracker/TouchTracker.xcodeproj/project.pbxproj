@@ -16,6 +16,7 @@
 		0FA9395E1EE1F24000582353 /* TouchTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA9395D1EE1F24000582353 /* TouchTrackerUITests.swift */; };
 		0FA9396C1EE1F29100582353 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA9396B1EE1F29100582353 /* Line.swift */; };
 		0FA9396F1EE1F33A00582353 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA9396E1EE1F33A00582353 /* DrawView.swift */; };
+		0FA939781EE253AF00582353 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA939771EE253AF00582353 /* Circle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0FA9395F1EE1F24000582353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FA9396B1EE1F29100582353 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		0FA9396E1EE1F33A00582353 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		0FA939771EE253AF00582353 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		0FA9396D1EE1F29900582353 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0FA939771EE253AF00582353 /* Circle.swift */,
 				0FA9396B1EE1F29100582353 /* Line.swift */,
 			);
 			name = Model;
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA939781EE253AF00582353 /* Circle.swift in Sources */,
 				0FA9396C1EE1F29100582353 /* Line.swift in Sources */,
 				0FA939401EE1F23F00582353 /* ViewController.swift in Sources */,
 				0FA9396F1EE1F33A00582353 /* DrawView.swift in Sources */,
@@ -534,6 +538,7 @@
 				0FA939641EE1F24000582353 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FA939651EE1F24000582353 /* Build configuration list for PBXNativeTarget "TouchTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +547,7 @@
 				0FA939671EE1F24000582353 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FA939681EE1F24000582353 /* Build configuration list for PBXNativeTarget "TouchTrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +556,7 @@
 				0FA9396A1EE1F24000582353 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

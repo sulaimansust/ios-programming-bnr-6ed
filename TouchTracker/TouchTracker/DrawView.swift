@@ -10,16 +10,16 @@ import UIKit
 
 class DrawView: UIView {
 
-    var currentLines = [NSValue:Line]()
-    var finishedLines = [Line]()
+    var currentCircle: Circle? = nil
+    var finishedCircles = [Circle]()
 
-    @IBInspectable var finishedLineColor: UIColor = UIColor.black {
+    @IBInspectable var finishedCircleColor: UIColor = UIColor.lightGray {
         didSet {
             setNeedsDisplay()
         }
     }
 
-    @IBInspectable var currentLineColor: UIColor = UIColor.red {
+    @IBInspectable var currentCircleColor: UIColor = UIColor.orange {
         didSet {
             setNeedsDisplay()
         }
@@ -37,14 +37,8 @@ class DrawView: UIView {
         // Log statement to see the order of events
         print(#function)
 
-        for touch in touches {
-            let location = touch.location(in: self)
-
-            let newLine = Line(begin: location, end: location)
-
-            let key = NSValue(nonretainedObject: touch)
-            currentLines[key] = newLine
-        }
+        let points = touches.map { $0.location(in: self) }
+        currentCircle = Circle(points: points)
 
         setNeedsDisplay()
     }
@@ -53,10 +47,8 @@ class DrawView: UIView {
         // Log statement to see the order of events
         print(#function)
 
-        for touch in touches {
-            let key = NSValue(nonretainedObject: touch)
-            currentLines[key]?.end = touch.location(in: self)
-        }
+        let points = touches.map { $0.location(in: self) }
+        currentCircle = Circle(points: points)
 
         setNeedsDisplay()
     }
@@ -65,15 +57,9 @@ class DrawView: UIView {
         // Log statement to see the order of events
         print(#function)
 
-        for touch in touches {
-            let key = NSValue(nonretainedObject: touch)
-            if var line = currentLines[key] {
-                line.end = touch.location(in: self)
-
-                finishedLines.append(line)
-                currentLines.removeValue(forKey: key)
-            }
-        }
+        let points = touches.map { $0.location(in: self) }
+        finishedCircles.append(Circle(points: points))
+        currentCircle = nil
 
         setNeedsDisplay()
     }
@@ -82,33 +68,29 @@ class DrawView: UIView {
         // Log statement to see the order of events
         print(#function)
 
-        currentLines.removeAll()
+        currentCircle = nil
 
         setNeedsDisplay()
     }
 
     // MARK: - Drawing
 
-    func stroke(_ line: Line) {
-        let path = UIBezierPath()
+    func stroke(_ circle: Circle) {
+        let path = UIBezierPath(ovalIn: circle.bbox)
         path.lineWidth = lineThickness
         path.lineCapStyle = .round
-
-        path.move(to: line.begin)
-        path.addLine(to: line.end)
         path.stroke()
     }
 
     override func draw(_ rect: CGRect) {
-        // Draw finished lines in black
-        finishedLineColor.setStroke()
-        for line in finishedLines {
-            stroke(line)
+        finishedCircleColor.setStroke()
+        for circle in finishedCircles {
+            stroke(circle)
         }
 
-        currentLineColor.setStroke()
-        for (_, line) in currentLines {
-            stroke(line)
+        currentCircleColor.setStroke()
+        if let circle = currentCircle {
+            stroke(circle)
         }
     }
 
