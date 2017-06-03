@@ -109,13 +109,13 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     func tap(_ gestureRecognizer: UIGestureRecognizer) {
         print("Recognized a tap")
 
-        let point = gestureRecognizer.location(in: self)
+        var point = gestureRecognizer.location(in: self)
         selectedLineIndex = indexOfLine(at: point)
 
         // Grab the menu controller
         let menu = UIMenuController.shared
 
-        if selectedLineIndex != nil {
+        if let index = selectedLineIndex {
             // Make DrawView the target of menu item action messages
             becomeFirstResponder()
 
@@ -123,8 +123,12 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
             menu.menuItems = [deleteItem]
 
             // Tell the menu where it should come from and show it
-            let targetRect = CGRect(x: point.x, y: point.y, width: 0, height: 0)
-            menu.setTargetRect(targetRect, in: self)
+
+            if self.bounds.contains(finishedLines[index].mid) {
+                point = finishedLines[index].mid
+            }
+
+            menu.setTargetRect(CGRect(x: point.x, y: point.y, width: 2, height: 2), in: self)
             menu.setMenuVisible(true, animated: true)
         } else {
             menu.setMenuVisible(false, animated: true)
@@ -164,6 +168,13 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
 
         // If a line is selected...
         if let index = selectedLineIndex {
+
+            let menu = UIMenuController.shared
+
+            if gestureRecognizer.state != .ended {
+                menu.setMenuVisible(false, animated: true)
+            }
+
             // When the pan recognizer changes its position...
             if gestureRecognizer.state == .changed {
                 // How far has the pan moved?
@@ -179,6 +190,15 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
 
                 // Redraw the screen
                 setNeedsDisplay()
+            } else if gestureRecognizer.state == .ended {
+                var point = gestureRecognizer.location(in: self)
+
+                if self.bounds.contains(finishedLines[index].mid) {
+                    point = finishedLines[index].mid
+                }
+
+                menu.setTargetRect(CGRect(x: point.x, y: point.y, width: 2, height: 2), in: self)
+                menu.setMenuVisible(true, animated: true)
             }
         } else {
             // If no line is selected...
@@ -195,6 +215,10 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Log statement to see the order of events
         print(#function)
+
+        guard selectedLineIndex == nil else {
+            return
+        }
 
         for touch in touches {
             let location = touch.location(in: self)

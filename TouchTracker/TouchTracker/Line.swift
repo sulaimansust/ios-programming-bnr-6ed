@@ -12,4 +12,7 @@ import CoreGraphics
 struct Line {
     var begin = CGPoint.zero
     var end = CGPoint.zero
+    var mid: CGPoint {
+        return CGPoint(x: (begin.x + end.x) / 2, y: (begin.y + end.y) / 2)
+    }
 }
