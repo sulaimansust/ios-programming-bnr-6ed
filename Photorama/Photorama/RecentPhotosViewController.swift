@@ -1,5 +1,5 @@
 //
-//  PhotosViewController.swift
+//  RecentPhotosViewController.swift
 //  Photorama
 //
 //  Created by Laurent Boileau on 2017-06-07.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController {
+class RecentPhotosViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
     var store: PhotoStore!
@@ -16,7 +16,7 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        store.fetchInterestingPhotos { (photosResult) -> Void in
+        store.fetchRecentPhotos{ (photosResult) -> Void in
             switch photosResult {
             case let .success(photos):
                 print("Successfully found \(photos.count) photos.")
@@ -39,5 +39,5 @@ class PhotosViewController: UIViewController {
             }
         }
     }
-
+    
 }

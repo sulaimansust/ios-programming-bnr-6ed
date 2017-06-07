@@ -18,8 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         let rootViewController = window!.rootViewController as! UINavigationController
-        let photosViewController = rootViewController.topViewController as! PhotosViewController
-        photosViewController.store = PhotoStore()
+        let tabBarViewController = rootViewController.topViewController as! UITabBarController
+
+        let photosViewController = tabBarViewController.viewControllers?[0] as! PhotosViewController
+        let recentPhotosViewController = tabBarViewController.viewControllers?[1] as! RecentPhotosViewController
+
+        let store = PhotoStore()
+
+        photosViewController.store = store
+        recentPhotosViewController.store = store
 
         return true
     }

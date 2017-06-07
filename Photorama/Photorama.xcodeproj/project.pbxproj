@@ -17,6 +17,7 @@
 		0FE2789C1EE89A250041FC9B /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE2789B1EE89A250041FC9B /* FlickrAPI.swift */; };
 		0FE2789F1EE89DB40041FC9B /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE2789E1EE89DB40041FC9B /* PhotoStore.swift */; };
 		0FE278A11EE8A2460041FC9B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE278A01EE8A2460041FC9B /* Photo.swift */; };
+		0FE278A31EE8B3930041FC9B /* RecentPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE278A21EE8B3930041FC9B /* RecentPhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		0FE2789B1EE89A250041FC9B /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		0FE2789E1EE89DB40041FC9B /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		0FE278A01EE8A2460041FC9B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		0FE278A21EE8B3930041FC9B /* RecentPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecentPhotosViewController.swift; path = Photorama/RecentPhotosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				0FE278981EE897D50041FC9B /* PhotosViewController.swift */,
+				0FE278A21EE8B3930041FC9B /* RecentPhotosViewController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE278A31EE8B3930041FC9B /* RecentPhotosViewController.swift in Sources */,
 				0FE2789C1EE89A250041FC9B /* FlickrAPI.swift in Sources */,
 				0FE278991EE897D50041FC9B /* PhotosViewController.swift in Sources */,
 				0FE2789F1EE89DB40041FC9B /* PhotoStore.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 
 enum Method: String {
     case interestingPhotos = "flickr.interestingness.getList"
+    case recentPhotos = "flickr.photos.getRecent"
 }
 
 enum FlickrError: Error {
@@ -59,6 +60,10 @@ struct FlickrAPI {
 
     static var interestingPhotosURL: URL {
         return flickrURL(method: .interestingPhotos, parameters: ["extras": "url_h,date_taken"])
+    }
+
+    static var recentPhotosURL: URL {
+        return flickrURL(method: .recentPhotos, parameters: ["extras": "url_h,date_taken"])
     }
 
     static func photos(fromJSON data: Data) -> PhotosResult {

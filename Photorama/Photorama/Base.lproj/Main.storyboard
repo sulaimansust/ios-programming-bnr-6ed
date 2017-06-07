@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ecD-nl-M4M">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,6 +34,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ecD-nl-M4M" secondAttribute="bottom" id="n5e-UY-WWg"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="2q9-h2-YUO"/>
                     <navigationItem key="navigationItem" title="Photorama" id="AfB-5V-AKF"/>
                     <connections>
                         <outlet property="imageView" destination="ecD-nl-M4M" id="d53-qN-fG6"/>
@@ -41,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2015.2" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XxA-rn-AFA">
@@ -54,12 +55,65 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xvh-9h-Z1c"/>
+                        <segue destination="Qct-ua-4Nz" kind="relationship" relationship="rootViewController" id="xvh-9h-Z1c"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfx-28-WGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="113" y="139"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Fki-cf-vPS">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Qct-ua-4Nz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CAY-OW-1IK"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="o8d-Fs-wmG">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="fkF-9d-a26"/>
+                        <segue destination="2z3-Vs-0wy" kind="relationship" relationship="viewControllers" id="bB1-DI-Wsh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qAJ-fD-H4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Photorama-->
+        <scene sceneID="cCt-oy-0rL">
+            <objects>
+                <viewController id="2z3-Vs-0wy" customClass="RecentPhotosViewController" customModule="Photorama" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tG4-YT-DDY"/>
+                        <viewControllerLayoutGuide type="bottom" id="TL8-Ds-ryL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sVM-4q-gvQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rqO-eu-kna">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rqO-eu-kna" firstAttribute="leading" secondItem="sVM-4q-gvQ" secondAttribute="leadingMargin" constant="-16" id="727-jx-gJF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rqO-eu-kna" secondAttribute="trailing" constant="-16" id="RaX-15-dZN"/>
+                            <constraint firstItem="rqO-eu-kna" firstAttribute="top" secondItem="tG4-YT-DDY" secondAttribute="bottom" id="hPf-p0-l3M"/>
+                            <constraint firstItem="TL8-Ds-ryL" firstAttribute="top" secondItem="rqO-eu-kna" secondAttribute="bottom" id="nYb-eR-hX1"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="YZl-ll-OvE"/>
+                    <navigationItem key="navigationItem" title="Photorama" id="mHR-S5-sEc"/>
+                    <connections>
+                        <outlet property="imageView" destination="rqO-eu-kna" id="uPJ-7w-CRR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxS-4W-6Up" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015" y="895"/>
         </scene>
     </scenes>
 </document>
