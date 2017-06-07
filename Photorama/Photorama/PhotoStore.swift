@@ -33,6 +33,12 @@ class PhotoStore {
         let url = FlickrAPI.interestingPhotosURL
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) { (data, response, error) -> Void in
+            if let httpResponse = response as? HTTPURLResponse {
+                let statusCode = httpResponse.statusCode
+                let headers = httpResponse.allHeaderFields
+                print("Status code: \(statusCode)")
+                print("Header fields: \(headers)")
+            }
             let result = self.processPhotosRequest(data: data, error: error)
             OperationQueue.main.addOperation {
                 completion(result)
@@ -47,6 +53,12 @@ class PhotoStore {
 
         let task = session.dataTask(with: request) {
             (data, response, error) -> Void in
+            if let httpResponse = response as? HTTPURLResponse {
+                let statusCode = httpResponse.statusCode
+                let headers = httpResponse.allHeaderFields
+                print("Status code: \(statusCode)")
+                print("Header fields: \(headers)")
+            }
             let result = self.processImageRequest(data: data, error: error)
             OperationQueue.main.addOperation {
                 completion(result)
