@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PhotosViewController: UIViewController, UICollectionViewDelegate {
+class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var collectionView: UICollectionView!
 
@@ -35,6 +35,13 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         }
     }
 
+    // MARK: - UIViewController methods
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+
     // MARK: - UICollectionViewDelegate methods
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -56,6 +63,14 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
                 cell.update(with: image)
             }
         }
+    }
+
+    // MARK: - UICollectionViewDelegateFlowLayout methods
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let totalWidth = collectionView.frame.width
+        let quarterWidth = (totalWidth / 4.0).rounded()
+        return CGSize(width: quarterWidth, height: quarterWidth)
     }
 
     // MARK: - Segue
