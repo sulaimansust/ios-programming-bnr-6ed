@@ -87,3 +87,30 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
 }
+
+extension PhotosViewController {
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard
+            let firstIx = collectionView.indexPathsForSelectedItems?.first,
+            let cell = collectionView.cellForItem(at: firstIx)
+        else {
+            return
+        }
+
+        scrollView.isScrollEnabled = false
+
+        let layer = cell.contentView.layer
+
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            var perspective = CATransform3DIdentity
+            perspective.m34 = -1.0 / 2000.0
+            print("step in")
+            layer.transform = perspective
+            print("step out")
+        }) { (done) in
+            scrollView.isScrollEnabled = true
+        }
+
+    }
+}
