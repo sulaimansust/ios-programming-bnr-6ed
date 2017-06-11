@@ -16,9 +16,10 @@ extension Photo {
         return NSFetchRequest<Photo>(entityName: "Photo")
     }
 
-    @NSManaged public var photoID: String?
-    @NSManaged public var title: String?
     @NSManaged public var dateTaken: NSDate?
+    @NSManaged public var photoID: String?
     @NSManaged public var remoteURL: NSURL?
+    @NSManaged public var title: String?
+    @NSManaged public var viewCount: Int32
 
 }

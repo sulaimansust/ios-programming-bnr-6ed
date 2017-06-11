@@ -13,6 +13,7 @@ class PhotoInfoViewController: UIViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var viewCountItem: UIBarButtonItem!
 
     // MARK: - Properties
 
@@ -35,6 +36,11 @@ class PhotoInfoViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        viewCountItem.title = "View count: \(photo.viewCount + 1)"
+        store.incrementViewCount(for: photo)
     }
 
 }

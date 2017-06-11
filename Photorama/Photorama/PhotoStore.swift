@@ -116,6 +116,20 @@ class PhotoStore {
         }
     }
 
+    func incrementViewCount(for photo: Photo) {
+        let viewContext = persistantContainer.viewContext
+
+        viewContext.performAndWait {
+            photo.viewCount += 1
+        }
+
+        do {
+            try viewContext.save()
+        } catch let error {
+            print("Failed to increment view count. Error: \(error)")
+        }
+    }
+
     private func processImageRequest(data: Data?, error: Error?) -> ImageResult {
         guard
             let imageData = data,

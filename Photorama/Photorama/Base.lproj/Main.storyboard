@@ -97,6 +97,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E2Z-Yu-zmE">
                                 <rect key="frame" x="16" y="64" width="343" height="603"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="90Q-3l-ggM">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="View count" id="CPV-PN-gsH"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -108,6 +115,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="E2Z-Yu-zmE" id="x7v-l5-Tsm"/>
+                        <outlet property="viewCountItem" destination="CPV-PN-gsH" id="tIM-v5-cKr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="la2-fu-MfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
