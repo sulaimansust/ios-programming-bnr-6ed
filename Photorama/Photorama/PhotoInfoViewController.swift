@@ -14,10 +14,13 @@ class PhotoInfoViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
 
+    @IBOutlet var favoriteItem: UIBarButtonItem!
+
     // MARK: - Properties
 
     var photo: Photo! {
         didSet {
+            favoriteItem.title = getFavoriteBarButtonTitle(for: photo)
             navigationItem.title = photo.title
         }
     }
@@ -35,6 +38,23 @@ class PhotoInfoViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
+    }
+
+    func getFavoriteBarButtonTitle(for photo: Photo) -> String {
+        return (photo.favorite) ? "♥︎" : "♡"
+    }
+
+    @IBAction func favoriteToggled(_ sender: UIBarButtonItem) {
+        photo.favorite = !photo.favorite
+
+        do {
+            try store.persistantContainer.viewContext.save()
+        } catch {
+            print("Core Data save failed: \(error).")
+            return
+        }
+
+        favoriteItem.title = getFavoriteBarButtonTitle(for: photo)
     }
 
     // MARK: - Storyboard segues

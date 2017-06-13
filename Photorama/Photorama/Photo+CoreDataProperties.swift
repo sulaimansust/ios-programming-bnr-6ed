@@ -20,6 +20,7 @@ extension Photo {
     @NSManaged public var photoID: String?
     @NSManaged public var remoteURL: NSURL?
     @NSManaged public var title: String?
+    @NSManaged public var favorite: Bool
     @NSManaged public var tags: NSSet?
 
 }

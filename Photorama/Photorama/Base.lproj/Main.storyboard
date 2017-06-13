@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--Photo Info View Controller-->
+        <!--Photo Title-->
         <scene sceneID="2hc-ls-Mvb">
             <objects>
                 <viewController id="ALs-Wv-6ES" customClass="PhotoInfoViewController" customModule="Photorama" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,7 +119,15 @@
                             <constraint firstAttribute="trailing" secondItem="E2Z-Yu-zmE" secondAttribute="trailing" id="goa-vL-oEC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Photo Title" id="EZe-8a-WIl">
+                        <barButtonItem key="rightBarButtonItem" title="♡" id="hDx-za-hvI">
+                            <connections>
+                                <action selector="favoriteToggled:" destination="ALs-Wv-6ES" id="qKu-Xl-C00"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="favoriteItem" destination="hDx-za-hvI" id="2Nm-XO-Psg"/>
                         <outlet property="imageView" destination="E2Z-Yu-zmE" id="x7v-l5-Tsm"/>
                     </connections>
                 </viewController>
@@ -165,11 +173,7 @@
                                 <action selector="done:" destination="5uv-l1-wGK" id="3kM-13-LPX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XWj-W3-NJS">
-                            <connections>
-                                <action selector="addNewTag:" destination="5uv-l1-wGK" id="0aF-GZ-tFe"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XWj-W3-NJS"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWc-tK-aEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
