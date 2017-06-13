@@ -1,5 +1,5 @@
 # ios-programming-bnr-6ed
-Project files and my solutions to challenges for Big Nerd Ranch's iOS Programming 6th edition.
+Project files and my solutions to challenges for iOS Programming: The Big Nerd Ranch Guide (6th Edition).
 
 ## The Book
 More information about the book can be found [here](https://www.bignerdranch.com/books/ios-programming/).
