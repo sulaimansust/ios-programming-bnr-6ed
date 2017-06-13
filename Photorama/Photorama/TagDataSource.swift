@@ -23,6 +23,8 @@ class TagDataSource: NSObject, UITableViewDataSource {
 
         cell.textLabel?.text = tag.name
 
+        cell.accessibilityHint = "Double tap to toggle selected"
+
         return cell
     }
 

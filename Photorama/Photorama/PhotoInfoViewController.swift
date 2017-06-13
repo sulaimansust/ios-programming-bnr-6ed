@@ -35,6 +35,8 @@ class PhotoInfoViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
+
+        imageView.accessibilityLabel = photo.title
     }
 
     // MARK: - Storyboard segues
