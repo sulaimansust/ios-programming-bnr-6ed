@@ -55,6 +55,14 @@ class PhotoInfoViewController: UIViewController {
         }
 
         favoriteItem.title = getFavoriteBarButtonTitle(for: photo)
+
+        // update FavoritePhotosViewController contents
+
+        if let tabVC = navigationController?.parent,
+            let favoriteTabNavigationVC = tabVC.childViewControllers.last,
+            let favoriteVC = favoriteTabNavigationVC.childViewControllers.first as? FavoritePhotosViewController {
+            favoriteVC.updateDataSource()
+        }
     }
 
     // MARK: - Storyboard segues

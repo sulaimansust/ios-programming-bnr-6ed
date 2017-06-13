@@ -115,6 +115,26 @@ class PhotoStore {
         }
     }
 
+    func fetchFavoritePhotos(completion: @escaping (PhotosResult) -> Void) {
+        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+        let predicate = NSPredicate(format: "\(#keyPath(Photo.favorite)) == \(true)")
+        fetchRequest.predicate = predicate
+        let sortByDateTaken = NSSortDescriptor(key: #keyPath(Photo.dateTaken), ascending: false)
+
+        fetchRequest.sortDescriptors = [sortByDateTaken]
+
+        let viewContext = persistantContainer.viewContext
+
+        viewContext.perform {
+            do {
+                let favoritePhotos = try viewContext.fetch(fetchRequest)
+                completion(.success(favoritePhotos))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+
     func fetchAllTags(completion: @escaping (TagsResult) -> Void) {
         let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
         let sortByName = NSSortDescriptor(key: #keyPath(Tag.name), ascending: true)
